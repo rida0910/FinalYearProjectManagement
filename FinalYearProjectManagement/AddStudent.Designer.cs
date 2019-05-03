@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.AddStudentHeadingLabel = new System.Windows.Forms.Label();
+            this.FirstNametext = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BackToMainScreenStudent = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SaveStudentButton = new System.Windows.Forms.Button();
             this.RegistrationNoText = new System.Windows.Forms.TextBox();
             this.ContactText = new System.Windows.Forms.TextBox();
             this.RegistrationNumber = new System.Windows.Forms.Label();
             this.GenderComboBox = new System.Windows.Forms.ComboBox();
             this.FirstName = new System.Windows.Forms.Label();
             this.DOBdateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.FirstNametext = new System.Windows.Forms.TextBox();
             this.Gender = new System.Windows.Forms.Label();
             this.LastName = new System.Windows.Forms.Label();
             this.DOB = new System.Windows.Forms.Label();
@@ -53,6 +54,8 @@
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
+            this.panel1.Controls.Add(this.AddStudentHeadingLabel);
             this.panel1.Controls.Add(this.FirstNametext);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.RegistrationNoText);
@@ -71,8 +74,29 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(495, 343);
+            this.panel1.Size = new System.Drawing.Size(952, 438);
             this.panel1.TabIndex = 18;
+            // 
+            // AddStudentHeadingLabel
+            // 
+            this.AddStudentHeadingLabel.AutoSize = true;
+            this.AddStudentHeadingLabel.Font = new System.Drawing.Font("Century Schoolbook", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddStudentHeadingLabel.ForeColor = System.Drawing.Color.White;
+            this.AddStudentHeadingLabel.Location = new System.Drawing.Point(405, 18);
+            this.AddStudentHeadingLabel.Name = "AddStudentHeadingLabel";
+            this.AddStudentHeadingLabel.Size = new System.Drawing.Size(135, 25);
+            this.AddStudentHeadingLabel.TabIndex = 19;
+            this.AddStudentHeadingLabel.Text = "Add Student";
+            // 
+            // FirstNametext
+            // 
+            this.FirstNametext.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FirstNametext.Location = new System.Drawing.Point(335, 90);
+            this.FirstNametext.Name = "FirstNametext";
+            this.FirstNametext.Size = new System.Drawing.Size(408, 20);
+            this.FirstNametext.TabIndex = 2;
             // 
             // panel2
             // 
@@ -80,16 +104,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.BackToMainScreenStudent);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(17, 266);
+            this.panel2.Controls.Add(this.SaveStudentButton);
+            this.panel2.Location = new System.Drawing.Point(17, 343);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(449, 65);
+            this.panel2.Size = new System.Drawing.Size(906, 83);
             this.panel2.TabIndex = 18;
             // 
             // BackToMainScreenStudent
             // 
             this.BackToMainScreenStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BackToMainScreenStudent.Location = new System.Drawing.Point(26, 24);
+            this.BackToMainScreenStudent.Location = new System.Drawing.Point(54, 33);
             this.BackToMainScreenStudent.Name = "BackToMainScreenStudent";
             this.BackToMainScreenStudent.Size = new System.Drawing.Size(79, 27);
             this.BackToMainScreenStudent.TabIndex = 17;
@@ -97,25 +121,25 @@
             this.BackToMainScreenStudent.UseVisualStyleBackColor = true;
             this.BackToMainScreenStudent.Click += new System.EventHandler(this.BackToMainScreenStudent_Click);
             // 
-            // button1
+            // SaveStudentButton
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(344, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 27);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.SaveStudentButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SaveStudentButton.Location = new System.Drawing.Point(770, 33);
+            this.SaveStudentButton.Name = "SaveStudentButton";
+            this.SaveStudentButton.Size = new System.Drawing.Size(83, 27);
+            this.SaveStudentButton.TabIndex = 1;
+            this.SaveStudentButton.Text = "Save";
+            this.SaveStudentButton.UseVisualStyleBackColor = true;
+            this.SaveStudentButton.Click += new System.EventHandler(this.SaveStudentButton_Click);
             // 
             // RegistrationNoText
             // 
             this.RegistrationNoText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RegistrationNoText.Location = new System.Drawing.Point(151, 224);
+            this.RegistrationNoText.Location = new System.Drawing.Point(335, 283);
             this.RegistrationNoText.Name = "RegistrationNoText";
-            this.RegistrationNoText.Size = new System.Drawing.Size(237, 20);
+            this.RegistrationNoText.Size = new System.Drawing.Size(408, 20);
             this.RegistrationNoText.TabIndex = 16;
             // 
             // ContactText
@@ -123,9 +147,9 @@
             this.ContactText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContactText.Location = new System.Drawing.Point(151, 89);
+            this.ContactText.Location = new System.Drawing.Point(335, 154);
             this.ContactText.Name = "ContactText";
-            this.ContactText.Size = new System.Drawing.Size(237, 20);
+            this.ContactText.Size = new System.Drawing.Size(408, 20);
             this.ContactText.TabIndex = 6;
             // 
             // RegistrationNumber
@@ -134,9 +158,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RegistrationNumber.AutoSize = true;
-            this.RegistrationNumber.Location = new System.Drawing.Point(14, 231);
+            this.RegistrationNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.RegistrationNumber.ForeColor = System.Drawing.Color.White;
+            this.RegistrationNumber.Location = new System.Drawing.Point(51, 284);
             this.RegistrationNumber.Name = "RegistrationNumber";
-            this.RegistrationNumber.Size = new System.Drawing.Size(103, 13);
+            this.RegistrationNumber.Size = new System.Drawing.Size(131, 16);
             this.RegistrationNumber.TabIndex = 15;
             this.RegistrationNumber.Text = "Registration Number";
             // 
@@ -151,9 +177,9 @@
             this.GenderComboBox.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.GenderComboBox.Location = new System.Drawing.Point(151, 188);
+            this.GenderComboBox.Location = new System.Drawing.Point(335, 250);
             this.GenderComboBox.Name = "GenderComboBox";
-            this.GenderComboBox.Size = new System.Drawing.Size(237, 21);
+            this.GenderComboBox.Size = new System.Drawing.Size(408, 21);
             this.GenderComboBox.TabIndex = 14;
             // 
             // FirstName
@@ -162,9 +188,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FirstName.AutoSize = true;
-            this.FirstName.Location = new System.Drawing.Point(14, 33);
+            this.FirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.FirstName.ForeColor = System.Drawing.Color.White;
+            this.FirstName.Location = new System.Drawing.Point(51, 91);
             this.FirstName.Name = "FirstName";
-            this.FirstName.Size = new System.Drawing.Size(57, 13);
+            this.FirstName.Size = new System.Drawing.Size(73, 16);
             this.FirstName.TabIndex = 0;
             this.FirstName.Text = "First Name";
             // 
@@ -173,20 +201,10 @@
             this.DOBdateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DOBdateTimePicker.Location = new System.Drawing.Point(151, 153);
+            this.DOBdateTimePicker.Location = new System.Drawing.Point(335, 218);
             this.DOBdateTimePicker.Name = "DOBdateTimePicker";
-            this.DOBdateTimePicker.Size = new System.Drawing.Size(237, 20);
+            this.DOBdateTimePicker.Size = new System.Drawing.Size(408, 20);
             this.DOBdateTimePicker.TabIndex = 13;
-            // 
-            // FirstNametext
-            // 
-            this.FirstNametext.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FirstNametext.Location = new System.Drawing.Point(151, 26);
-            this.FirstNametext.Name = "FirstNametext";
-            this.FirstNametext.Size = new System.Drawing.Size(236, 20);
-            this.FirstNametext.TabIndex = 2;
             // 
             // Gender
             // 
@@ -194,9 +212,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Gender.AutoSize = true;
-            this.Gender.Location = new System.Drawing.Point(14, 191);
+            this.Gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.Gender.ForeColor = System.Drawing.Color.White;
+            this.Gender.Location = new System.Drawing.Point(51, 251);
             this.Gender.Name = "Gender";
-            this.Gender.Size = new System.Drawing.Size(42, 13);
+            this.Gender.Size = new System.Drawing.Size(53, 16);
             this.Gender.TabIndex = 11;
             this.Gender.Text = "Gender";
             // 
@@ -206,9 +226,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LastName.AutoSize = true;
-            this.LastName.Location = new System.Drawing.Point(14, 64);
+            this.LastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.LastName.ForeColor = System.Drawing.Color.White;
+            this.LastName.Location = new System.Drawing.Point(51, 123);
             this.LastName.Name = "LastName";
-            this.LastName.Size = new System.Drawing.Size(58, 13);
+            this.LastName.Size = new System.Drawing.Size(73, 16);
             this.LastName.TabIndex = 3;
             this.LastName.Text = "Last Name";
             // 
@@ -218,9 +240,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DOB.AutoSize = true;
-            this.DOB.Location = new System.Drawing.Point(14, 153);
+            this.DOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.DOB.ForeColor = System.Drawing.Color.White;
+            this.DOB.Location = new System.Drawing.Point(51, 222);
             this.DOB.Name = "DOB";
-            this.DOB.Size = new System.Drawing.Size(66, 13);
+            this.DOB.Size = new System.Drawing.Size(80, 16);
             this.DOB.TabIndex = 9;
             this.DOB.Text = "Date of Birth";
             // 
@@ -229,9 +253,9 @@
             this.LastNameText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LastNameText.Location = new System.Drawing.Point(151, 57);
+            this.LastNameText.Location = new System.Drawing.Point(335, 122);
             this.LastNameText.Name = "LastNameText";
-            this.LastNameText.Size = new System.Drawing.Size(237, 20);
+            this.LastNameText.Size = new System.Drawing.Size(408, 20);
             this.LastNameText.TabIndex = 4;
             // 
             // EmailText
@@ -239,9 +263,9 @@
             this.EmailText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EmailText.Location = new System.Drawing.Point(151, 121);
+            this.EmailText.Location = new System.Drawing.Point(335, 186);
             this.EmailText.Name = "EmailText";
-            this.EmailText.Size = new System.Drawing.Size(237, 20);
+            this.EmailText.Size = new System.Drawing.Size(408, 20);
             this.EmailText.TabIndex = 8;
             // 
             // Contact
@@ -250,9 +274,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Contact.AutoSize = true;
-            this.Contact.Location = new System.Drawing.Point(14, 96);
+            this.Contact.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.Contact.ForeColor = System.Drawing.Color.White;
+            this.Contact.Location = new System.Drawing.Point(51, 155);
             this.Contact.Name = "Contact";
-            this.Contact.Size = new System.Drawing.Size(44, 13);
+            this.Contact.Size = new System.Drawing.Size(53, 16);
             this.Contact.TabIndex = 5;
             this.Contact.Text = "Contact";
             // 
@@ -262,9 +288,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Email.AutoSize = true;
-            this.Email.Location = new System.Drawing.Point(14, 128);
+            this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.Email.ForeColor = System.Drawing.Color.White;
+            this.Email.Location = new System.Drawing.Point(51, 187);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(32, 13);
+            this.Email.Size = new System.Drawing.Size(42, 16);
             this.Email.TabIndex = 7;
             this.Email.Text = "Email";
             // 
@@ -272,9 +300,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(495, 343);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
+            this.ClientSize = new System.Drawing.Size(952, 438);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "AddStudent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Student";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -290,7 +322,7 @@
         private System.Windows.Forms.TextBox RegistrationNoText;
         private System.Windows.Forms.TextBox ContactText;
         private System.Windows.Forms.Label RegistrationNumber;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SaveStudentButton;
         private System.Windows.Forms.ComboBox GenderComboBox;
         private System.Windows.Forms.Label FirstName;
         private System.Windows.Forms.DateTimePicker DOBdateTimePicker;
@@ -304,5 +336,6 @@
         private System.Windows.Forms.Label Email;
         private System.Windows.Forms.Button BackToMainScreenStudent;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label AddStudentHeadingLabel;
     }
 }

@@ -26,7 +26,7 @@ namespace FinalYearProjectManagement
                 MarksTextBox.Text = Marks.ToString();
                 WeightageTextBox.Text = Weightage.ToString();
                 Text = "Update Evaluation";
-
+                AddEvaluationHeadingLabel.Text = "Update Evaluation";
                 SqlConnection connection = new SqlConnection(connString);
                 connection.Open();
                 string getid = string.Format("SELECT Id FROM Evaluation WHERE Name = '{0}' AND TotalMarks = '{1}' AND TotalWeightage = '{2}'", NameTextBox.Text, MarksTextBox.Text, WeightageTextBox.Text);
@@ -39,13 +39,34 @@ namespace FinalYearProjectManagement
         {
             try
             {
+                Evaluation evaluation = new Evaluation();
+                evaluation.Name = NameTextBox.Text;
+                try
+                {
+                    evaluation.Marks = MarksTextBox.Text;
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Please enter the marks of evaluation in digits");
+                    throw new ArgumentException();
+                }
+                try
+                {
+                    evaluation.TotalWeightage = WeightageTextBox.Text;
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Please enter the correct weightage");
+                    throw new ArgumentException();
+                }
                 if (value1 == "add")
                 {
                     SqlConnection connection = new SqlConnection(connString);
                     connection.Open();
-                    string addEvaluation = string.Format("INSERT INTO Evaluation(Name, TotalMarks, TotalWeightage) values('{0}', '{1}', '{2}')", NameTextBox.Text, int.Parse(MarksTextBox.Text), int.Parse(WeightageTextBox.Text));
+                    string addEvaluation = string.Format("INSERT INTO Evaluation(Name, TotalMarks, TotalWeightage) values('{0}', '{1}', '{2}')", evaluation.Name, int.Parse(evaluation.Marks), int.Parse(evaluation.TotalWeightage));
                     SqlCommand cmd = new SqlCommand(addEvaluation, connection);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Evaluation Added!");
                     connection.Close();
                 }
                 else if (value1 == "edit")
@@ -53,24 +74,25 @@ namespace FinalYearProjectManagement
                     SqlConnection connection = new SqlConnection(connString);
                     connection.Open();
                     string update = string.Format("UPDATE Evaluation SET Name = '{0}', TotalMarks = '{1}', TotalWeightage = '{2}'" +
-                        "WHERE Id = '{3}'", NameTextBox.Text, int.Parse(MarksTextBox.Text), int.Parse(WeightageTextBox.Text), id);
+                        "WHERE Id = '{3}'", evaluation.Name, int.Parse(evaluation.Marks), int.Parse(evaluation.TotalWeightage), id);
                     SqlCommand cmd = new SqlCommand(update, connection);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Evaluation Updated!");
                     connection.Close();
                 }
-                ManageEvaluations form = new ManageEvaluations();
+                ManageEvaluationForm form = new ManageEvaluationForm();
                 this.Close();
                 form.Show();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Evaluation not saved!");
             }
         }
 
         private void BackScreen_Click(object sender, EventArgs e)
         {
-            ManageEvaluations form = new ManageEvaluations();
+            ManageEvaluationForm form = new ManageEvaluationForm();
             this.Close();
             form.Show();
         }

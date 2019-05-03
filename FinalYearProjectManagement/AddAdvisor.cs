@@ -15,6 +15,7 @@ namespace FinalYearProjectManagement
     {
         String connString = "Data Source=RIDA\\SQLSERVER;Initial Catalog=ProjectA;User ID=sa;Password=0910";
         string value1;
+        int IDadvisor;
         public AddAdvisor(string firstName, string lastName, string Designation, string contact, string email, Decimal salary, DateTime dob, string gender, string value)
         {
             InitializeComponent();
@@ -30,88 +31,169 @@ namespace FinalYearProjectManagement
                 DOBdateTimePicker.Value = dob;
                 GenderComboBox.Text = gender;
 
-                FirstNametext.ReadOnly = true;
-                LastNameText.ReadOnly = true;
-                DOBdateTimePicker.Enabled = false;
-                GenderComboBox.Enabled = false;
+                SqlConnection conn = new SqlConnection(connString);
+                conn.Open();
+                string cmdtext = string.Format("SELECT Id FROM Person WHERE Email = '{0}'", EmailText.Text);
+                SqlCommand cmd = new SqlCommand(cmdtext, conn);
+                IDadvisor = (Int32)cmd.ExecuteScalar();
 
                 this.Text = "Update Advisor";
+                AddAdvisorHeadingLabel.Text = "Update Advsior";
             }
         }
         private void AddAdvisor1_Click(object sender, EventArgs e)
         {
             try
             {
+                Person person = new Person();
+                try
+                {
+                    person.fname = FirstNametext.Text;
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Please Enter correct first name!");
+                    FirstNametext.Clear();
+                    throw new ArgumentException();
+                }
+                try
+                {
+                    person.lname = LastNameText.Text;
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Please Enter correct last name!");
+                    LastNameText.Clear();
+                    throw new ArgumentException();
+                }
+                try
+                {
+                    person.Contact = ContactText.Text;
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Please enter the correct 11 digit contact number");
+                    ContactText.Clear();
+                    throw new ArgumentException();
+                }
+                try
+                {
+                    person.Email = EmailText.Text;
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Please Enter the email address");
+                    EmailText.Clear();
+                    throw new ArgumentException();
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Please Enter the correct email address");
+                    EmailText.Clear();
+                    throw new ArgumentException();
+                }
+                try
+                {
+                    person.DOB = DOBdateTimePicker.Value;
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Person Age Must Be Greater Than 18");
+                    DOBdateTimePicker.Value = DateTime.Now;
+                    throw new ArgumentException();
+                }
+                try
+                {
+                    person.Gender = GenderComboBox.Text;
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Please Select the gender From the dropdown list");
+                    throw new ArgumentException();
+                }
+
+                Advisor advisor = new Advisor();
+                try
+                {
+                    advisor.designation = designationComboBox.Text;
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Please select designation from the dropdown list");
+                    designationComboBox.ResetText();
+                    throw new ArgumentException();
+                }
+
+                try
+                {
+                    advisor.salary = SalaryTextBox.Text;
+                }
+                catch
+                {
+                    MessageBox.Show("Please enter the salary in digits");
+                    throw new ArgumentException();
+                }
                 if (value1 == "add")
                 {
-                    SqlConnection connection1 = new SqlConnection(connString);
-                    SqlConnection connection2 = new SqlConnection(connString);
-                    connection1.Open();
-                    connection2.Open();
+                    SqlConnection connection = new SqlConnection(connString);
+                    connection.Open();
                     string genderid = string.Format("SELECT Id FROM LookUp WHERE Value = '{0}' AND Category = 'GENDER'", GenderComboBox.Text);
-                    SqlCommand cmd1 = new SqlCommand(genderid, connection1);
-                    int id = (Int32)cmd1.ExecuteScalar();
+                    SqlCommand cmd = new SqlCommand(genderid, connection);
+                    int id = (Int32)cmd.ExecuteScalar();
 
                     String cmdtext = String.Format("INSERT INTO Person(FirstName, LastName, Contact, Email, DateOfBirth, Gender) values('{0}','{1}', '{2}', '{3}', '{4}', '{5}' )", FirstNametext.Text, LastNameText.Text, ContactText.Text, EmailText.Text, DOBdateTimePicker.Value, id);
-                    SqlCommand cmd = new SqlCommand(cmdtext, connection2);
+                    cmd.CommandText = cmdtext;
                     cmd.ExecuteNonQuery();
 
-                    SqlConnection connection3 = new SqlConnection(connString);
-                    connection3.Open();
                     string getid = string.Format("SELECT id FROM Person WHERE Email = '{0}'", EmailText.Text);
-                    SqlCommand cmd2 = new SqlCommand(getid, connection3);
-                    id = (Int32)cmd2.ExecuteScalar();
-
+                    cmd.CommandText = getid;
+                    id = (Int32)cmd.ExecuteScalar();
 
                     cmd.CommandText = string.Format("SELECT Id FROM Lookup WHERE Value = '{0}' AND Category = 'DESIGNATION'", designationComboBox.Text);
                     int desig = (Int32)cmd.ExecuteScalar();
 
-                    SqlConnection connection4 = new SqlConnection(connString);
-                    connection4.Open();
                     string addStudent = string.Format("INSERT INTO Advisor(Id, Designation, Salary) values('{0}' , '{1}', '{2}')", id, desig, SalaryTextBox.Text);
-                    SqlCommand cmd3 = new SqlCommand(addStudent, connection3);
-                    cmd3.ExecuteNonQuery();
+                    cmd.CommandText = addStudent;
+                    cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Advisor Added");
-                    connection1.Close();
-                    connection2.Close();
-                    connection3.Close();
-                    connection4.Close();
+                    connection.Close();
                 }
                 else if (value1 == "edit")
                 {
                     SqlConnection connection = new SqlConnection(connString);
                     connection.Open();
 
-                    string getid = String.Format("SELECT Id FROM Person WHERE Email = '{0}'", EmailText.Text);
-                    SqlCommand cmd = new SqlCommand(getid, connection);
-                    int id = (Int32)cmd.ExecuteScalar();
+                    string getGenderId = string.Format("SELECT Id FROM LookUp WHERE Value = '{0}' AND Category = 'GENDER'", GenderComboBox.Text);
+                    SqlCommand cmd = new SqlCommand(getGenderId, connection);
+                    int gender = (Int32)cmd.ExecuteScalar();
 
                     cmd.CommandText = String.Format("SELECT Id FROM Lookup WHERE Value = '{0}' AND Category = 'DESIGNATION'", designationComboBox.Text);
                     int desig = (Int32)cmd.ExecuteScalar();
 
-                    cmd.CommandText = string.Format("UPDATE Person SET Email = '{0}', Contact = '{1}' " +
-                        "WHERE Person.Id = '{2}'", EmailText.Text, ContactText.Text, id); 
+                    cmd.CommandText = string.Format("UPDATE Person SET FirstName = '{0}', LastName = '{1}', Contact = '{2}', Email = '{3}', " +
+                        "DateOfBirth = '{4}', Gender = '{5}' WHERE Id = '{6}'", FirstNametext.Text, LastNameText.Text, ContactText.Text, EmailText.Text, DOBdateTimePicker.Value, gender, IDadvisor);
                     cmd.ExecuteNonQuery();
 
                     cmd.CommandText = string.Format("UPDATE Advisor SET Designation = '{0}', Salary = '{1}' " +
-                        "WHERE Id = '{2}'", desig, int.Parse(SalaryTextBox.Text), id);
+                        "WHERE Id = '{2}'", desig, int.Parse(SalaryTextBox.Text), IDadvisor);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Advisor Updated!");
                     connection.Close();
                 }
-                ManagerAdvisor form = new ManagerAdvisor();
+                ManageAdvisors form = new ManageAdvisors();
                 this.Close();
                 form.Show();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Advisor not saved. Please try again!");
             }
         }
 
         private void BackToMainScreenStudent_Click(object sender, EventArgs e)
         {
-            ManagerAdvisor form = new ManagerAdvisor();
+            ManageAdvisors form = new ManageAdvisors();
             this.Close();
             form.Show();
         }

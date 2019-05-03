@@ -25,7 +25,7 @@ namespace FinalYearProjectManagement
                 TitleTextBox.Text = Title;
                 DescriptionTextBox.Text = Description;
                 this.Text = "Update Project";
-
+                AddProjectHeadingLabel.Text = "Update Project";
                 SqlConnection connection = new SqlConnection(connString);
                 connection.Open();
                 string getid = string.Format("SELECT Id FROM Project WHERE Title = '{0}' AND Description = '{1}'", TitleTextBox.Text, DescriptionTextBox.Text);
@@ -38,6 +38,10 @@ namespace FinalYearProjectManagement
         {
             try
             {
+                if (TitleTextBox.Text == "" || DescriptionTextBox.Text == "")
+                {
+                    throw new ArgumentException();
+                }
                 if (value1 == "add")
                 {
                     SqlConnection connection = new SqlConnection(connString);
@@ -63,7 +67,7 @@ namespace FinalYearProjectManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Please enter title and description");
             }
         }
 

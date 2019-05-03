@@ -19,7 +19,7 @@ namespace FinalYearProjectManagement
             InitializeComponent();
         }
 
-        private void ManageProjects_Load(object sender, EventArgs e)
+        private void ManageProject123_Load(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection(connString);
             connection.Open();
@@ -46,7 +46,21 @@ namespace FinalYearProjectManagement
             connection.Close();
         }
 
-        private void Projects_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void InsertProject_Click_1(object sender, EventArgs e)
+        {
+            AddProject form = new AddProject("", "", "add");
+            form.Show();
+            this.Hide();
+        }
+
+        private void HomeButton_Click_1(object sender, EventArgs e)
+        {
+            FYPMainScreen form = new FYPMainScreen();
+            form.Show();
+            this.Close();
+        }
+
+        private void Projects_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == Projects.NewRowIndex || e.RowIndex < 0)
                 return;
@@ -56,13 +70,35 @@ namespace FinalYearProjectManagement
                 int i = e.RowIndex;
                 String Title = Projects.Rows[i].Cells[0].Value.ToString();
                 string Description = Projects.Rows[i].Cells[1].Value.ToString();
-                SqlConnection connection = new SqlConnection(connString);
-                connection.Open();
-                string display = String.Format("DELETE FROM Project WHERE Title = '{0}' AND Description = '{1}'", Title, Description);
-                SqlCommand cmd = new SqlCommand(display, connection);
-                cmd.ExecuteNonQuery();
-                Projects.Rows.RemoveAt(i);
-                connection.Close();
+
+                string dialog = string.Format("Delete Project '{0}' and all its information?", Title);
+                DialogResult dialogResult = MessageBox.Show(dialog, "Delete Project", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    SqlConnection connection = new SqlConnection(connString);
+                    connection.Open();
+                    string getid = string.Format("SELECT Id FROM Project WHERE Title = '{0}' AND Description = '{1}'", Title, Description);
+                    SqlCommand cmd = new SqlCommand(getid, connection);
+                    int id = (Int32)cmd.ExecuteScalar();
+
+                    string del = string.Format("DELETE FROM ProjectAdvisor WHERE ProjectId = '{0}'", id);
+                    cmd.CommandText = del;
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = string.Format("DELETE FROM GroupProject WHERE ProjectId = '{0}'", id);
+                    cmd.ExecuteNonQuery();
+
+                    string del0 = String.Format("DELETE FROM Project WHERE Title = '{0}' AND Description = '{1}'", Title, Description);
+                    cmd.CommandText = del0;
+                    cmd.ExecuteNonQuery();
+                    Projects.Rows.RemoveAt(i);
+                    MessageBox.Show("Project deleted successfully!");
+                    connection.Close();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    MessageBox.Show("Project not deleted!");
+                }
             }
             if (e.ColumnIndex == Projects.Columns["ProjectEditButton"].Index)
             {
@@ -73,13 +109,6 @@ namespace FinalYearProjectManagement
                 form.Show();
                 this.Hide();
             }
-        }
-
-        private void InsertProject_Click(object sender, EventArgs e)
-        {
-            AddProject form = new AddProject("", "", "add");
-            form.Show();
-            this.Hide();
         }
     }
 }

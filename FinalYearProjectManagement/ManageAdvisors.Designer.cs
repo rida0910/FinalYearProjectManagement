@@ -1,6 +1,6 @@
 ﻿namespace FinalYearProjectManagement
 {
-    partial class ManageEvaluationForm
+    partial class ManageAdvisors
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageEvaluationForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageAdvisors));
             this.panel7 = new System.Windows.Forms.Panel();
-            this.Evaluations = new System.Windows.Forms.DataGridView();
+            this.Advisors = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.EvaluationLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.InsertEvaluation = new System.Windows.Forms.Button();
+            this.InsertAdvisor = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.HomeButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Evaluations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Advisors)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -52,24 +52,24 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.Evaluations);
+            this.panel7.Controls.Add(this.Advisors);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 151);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(952, 287);
             this.panel7.TabIndex = 5;
             // 
-            // Evaluations
+            // Advisors
             // 
-            this.Evaluations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Evaluations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Evaluations.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Evaluations.Location = new System.Drawing.Point(0, 0);
-            this.Evaluations.Name = "Evaluations";
-            this.Evaluations.RowHeadersVisible = false;
-            this.Evaluations.Size = new System.Drawing.Size(952, 287);
-            this.Evaluations.TabIndex = 23;
-            this.Evaluations.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Evaluations_CellClick);
+            this.Advisors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Advisors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Advisors.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Advisors.Location = new System.Drawing.Point(0, 0);
+            this.Advisors.Name = "Advisors";
+            this.Advisors.RowHeadersVisible = false;
+            this.Advisors.Size = new System.Drawing.Size(952, 287);
+            this.Advisors.TabIndex = 23;
+            this.Advisors.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Advisors_CellClick_1);
             // 
             // panel3
             // 
@@ -84,48 +84,48 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.EvaluationLabel);
+            this.panel5.Controls.Add(this.label2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(106, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(646, 61);
             this.panel5.TabIndex = 1;
             // 
-            // EvaluationLabel
+            // label2
             // 
-            this.EvaluationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EvaluationLabel.Font = new System.Drawing.Font("Century725 BdCn BT", 14F, System.Drawing.FontStyle.Italic);
-            this.EvaluationLabel.ForeColor = System.Drawing.Color.White;
-            this.EvaluationLabel.Location = new System.Drawing.Point(0, 0);
-            this.EvaluationLabel.Name = "EvaluationLabel";
-            this.EvaluationLabel.Size = new System.Drawing.Size(646, 61);
-            this.EvaluationLabel.TabIndex = 25;
-            this.EvaluationLabel.Text = "Evaluations";
-            this.EvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Century725 BdCn BT", 14F, System.Drawing.FontStyle.Italic);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(646, 61);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Registered Advisors";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.InsertEvaluation);
+            this.panel6.Controls.Add(this.InsertAdvisor);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel6.Location = new System.Drawing.Point(752, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(200, 61);
             this.panel6.TabIndex = 2;
             // 
-            // InsertEvaluation
+            // InsertAdvisor
             // 
-            this.InsertEvaluation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.InsertEvaluation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.InsertEvaluation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InsertEvaluation.Font = new System.Drawing.Font("Century725 BdCn BT", 14F, System.Drawing.FontStyle.Italic);
-            this.InsertEvaluation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
-            this.InsertEvaluation.Image = ((System.Drawing.Image)(resources.GetObject("InsertEvaluation.Image")));
-            this.InsertEvaluation.Location = new System.Drawing.Point(61, 0);
-            this.InsertEvaluation.Name = "InsertEvaluation";
-            this.InsertEvaluation.Size = new System.Drawing.Size(139, 61);
-            this.InsertEvaluation.TabIndex = 26;
-            this.InsertEvaluation.UseVisualStyleBackColor = true;
-            this.InsertEvaluation.Click += new System.EventHandler(this.InsertEvaluation_Click_1);
+            this.InsertAdvisor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.InsertAdvisor.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InsertAdvisor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InsertAdvisor.Font = new System.Drawing.Font("Century725 BdCn BT", 14F, System.Drawing.FontStyle.Italic);
+            this.InsertAdvisor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
+            this.InsertAdvisor.Image = ((System.Drawing.Image)(resources.GetObject("InsertAdvisor.Image")));
+            this.InsertAdvisor.Location = new System.Drawing.Point(97, 0);
+            this.InsertAdvisor.Name = "InsertAdvisor";
+            this.InsertAdvisor.Size = new System.Drawing.Size(103, 61);
+            this.InsertAdvisor.TabIndex = 25;
+            this.InsertAdvisor.UseVisualStyleBackColor = true;
+            this.InsertAdvisor.Click += new System.EventHandler(this.InsertAdvisor_Click_1);
             // 
             // panel4
             // 
@@ -183,7 +183,7 @@
             this.panel2.Size = new System.Drawing.Size(106, 90);
             this.panel2.TabIndex = 1;
             // 
-            // ManageEvaluationForm
+            // ManageAdvisors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -192,12 +192,12 @@
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Name = "ManageEvaluationForm";
+            this.Name = "ManageAdvisors";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Manage Evaluations";
-            this.Load += new System.EventHandler(this.ManageEvaluation123_Load);
+            this.Text = "Manage Advisors";
+            this.Load += new System.EventHandler(this.ManagerAdvisor_Load);
             this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Evaluations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Advisors)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -210,12 +210,12 @@
         #endregion
 
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.DataGridView Evaluations;
+        private System.Windows.Forms.DataGridView Advisors;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label EvaluationLabel;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button InsertEvaluation;
+        private System.Windows.Forms.Button InsertAdvisor;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button HomeButton;
         private System.Windows.Forms.Panel panel1;

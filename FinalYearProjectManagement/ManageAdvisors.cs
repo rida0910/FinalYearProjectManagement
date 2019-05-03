@@ -11,10 +11,10 @@ using System.Data.SqlClient;
 
 namespace FinalYearProjectManagement
 {
-    public partial class ManagerAdvisor : Form
+    public partial class ManageAdvisors : Form
     {
         String connString = "Data Source=RIDA\\SQLSERVER;Initial Catalog=ProjectA;User ID=sa;Password=0910";
-        public ManagerAdvisor()
+        public ManageAdvisors()
         {
             InitializeComponent();
         }
@@ -51,11 +51,31 @@ namespace FinalYearProjectManagement
             connection.Close();
         }
 
-        private void Advisors_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void HomeButton_Click_1(object sender, EventArgs e)
+        {
+            FYPMainScreen form = new FYPMainScreen();
+            form.Show();
+            this.Close();
+        }
+
+        private void InsertAdvisor_Click_1(object sender, EventArgs e)
+        {
+            string firstName = "";
+            string lastName = "";
+            string contact = "";
+            string email = "";
+            DateTime dob = DateTime.Now;
+            string gender = "";
+            AddAdvisor addStudent = new AddAdvisor(firstName, lastName, "", contact, email, 0, dob, gender, "add");
+            this.Hide();
+            addStudent.Show();
+        }
+
+        private void Advisors_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == Advisors.NewRowIndex || e.RowIndex < 0)
                 return;
-            
+
             if (e.ColumnIndex == Advisors.Columns["AdvisorDeleteButton"].Index)
             {
                 int i = e.RowIndex;
@@ -65,21 +85,36 @@ namespace FinalYearProjectManagement
                 string firstName = names[0];
                 string lastName = names[1];
 
-                SqlConnection connection = new SqlConnection(connString);
-                connection.Open();
 
-                string getid = string.Format("SELECT Id FROM Person WHERE FirstName = '{0}' AND LastName = '{1}'" +
-                    "AND Email = '{2}'", firstName, lastName, email);
-                SqlCommand cmd = new SqlCommand(getid, connection);
-                int id = (Int32)cmd.ExecuteScalar();
+                string dialog = string.Format("Delete Advsior '{0}' and all its information?", fullName);
+                DialogResult dialogResult = MessageBox.Show(dialog, "Delete Advsior", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    SqlConnection connection = new SqlConnection(connString);
+                    connection.Open();
 
-                cmd.CommandText = String.Format("DELETE FROM Advisor WHERE Id = '{0}'", id);
-                cmd.ExecuteNonQuery();
+                    string getid = string.Format("SELECT Id FROM Person WHERE FirstName = '{0}' AND LastName = '{1}'" +
+                        "AND Email = '{2}'", firstName, lastName, email);
+                    SqlCommand cmd = new SqlCommand(getid, connection);
+                    int id = (Int32)cmd.ExecuteScalar();
 
-                cmd.CommandText = string.Format("DELETE FROM Person WHERE Id = '{0}'", id);
-                cmd.ExecuteNonQuery();
-                Advisors.Rows.RemoveAt(i);
-                connection.Close();
+                    cmd.CommandText = string.Format("DELETE FROM ProjectAdvisor WHERE AdvisorId = '{0}'", id);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = String.Format("DELETE FROM Advisor WHERE Id = '{0}'", id);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = string.Format("DELETE FROM Person WHERE Id = '{0}'", id);
+                    cmd.ExecuteNonQuery();
+                    Advisors.Rows.RemoveAt(i);
+                    MessageBox.Show("Advsior Deleted successfully!");
+                    connection.Close();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    MessageBox.Show("Advisor not deleted!");
+                }
+
             }
             if (e.ColumnIndex == Advisors.Columns["AdvisorEditButton"].Index)
             {
@@ -99,19 +134,6 @@ namespace FinalYearProjectManagement
                 form.Show();
                 this.Hide();
             }
-        }
-
-        private void InsertAdvisor_Click(object sender, EventArgs e)
-        {
-            string firstName = "";
-            string lastName = "";
-            string contact = "";
-            string email = "";
-            DateTime dob = DateTime.Now;
-            string gender = "";
-            AddAdvisor addStudent = new AddAdvisor(firstName, lastName, "", contact, email, 0, dob, gender, "add");
-            this.Hide();
-            addStudent.Show();
         }
     }
 }

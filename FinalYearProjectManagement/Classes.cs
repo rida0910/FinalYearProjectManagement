@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -144,9 +145,9 @@ namespace FinalYearProjectManagement
                 {
                     throw new ArgumentException();
                 }
-                for (int i = 0; i == 3; i++)                           
+                for (int i = 0; i == 3; i++)
                 {
-                    if (!char.IsDigit(value[i]))                        
+                    if (!char.IsDigit(value[i]))
                     {
                         throw new ArgumentException();
                     }
@@ -221,5 +222,70 @@ namespace FinalYearProjectManagement
             }
         }
 
+    }
+
+    class Project
+    {
+        string Description { get; set; }
+        string Title { get; set; }
+    }
+
+    class Evaluation
+    {
+        string name;
+        string marks;
+        string totalWeightage;
+
+        public string Name
+        {
+            set
+            {
+                name = value;
+            }
+            get
+            {
+                return name;
+            }
+        }
+  
+
+        public string Marks
+        {
+            set
+            {
+                foreach (char c in value)
+                {
+                    if (!char.IsDigit(c))
+                    {
+                        throw new ArgumentException();
+                    }
+                }
+                marks = value;
+            }
+            get
+            {
+                return marks;
+            }
+
+        }
+
+        public string TotalWeightage
+        {
+            set
+            {
+                foreach (char c in value)
+                {
+                    if (!char.IsDigit(c))
+                    {
+                        throw new ArgumentException();
+                    }
+                }
+                totalWeightage = value;
+            }
+            get
+            {
+                return totalWeightage;
+            }
+        }
     }
 }

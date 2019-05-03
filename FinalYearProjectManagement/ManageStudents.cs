@@ -11,20 +11,15 @@ using System.Data.SqlClient;
 
 namespace FinalYearProjectManagement
 {
-    public partial class Form1 : Form
+    public partial class ManageStudentsForm : Form
     {
         String connString = "Data Source=RIDA\\SQLSERVER;Initial Catalog=ProjectA;User ID=sa;Password=0910";
-        public Form1()
+        public ManageStudentsForm()
         {
             InitializeComponent();
         }
 
-        private void AddStudent_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void ManageStudents123_Load(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection(connString);
             connection.Open();
@@ -53,7 +48,30 @@ namespace FinalYearProjectManagement
             connection.Close();
         }
 
-        private void Students_CellClick(object sender, DataGridViewCellEventArgs e)
+
+
+        private void InsertStudent_Click_1(object sender, EventArgs e)
+        {
+            string firstName = "";
+            string lastName = "";
+            string regno = "";
+            string contact = "";
+            string email = "";
+            DateTime dob = DateTime.Now;
+            string gender = "";
+            AddStudent addStudent = new AddStudent(firstName, lastName, regno, contact, email, dob, gender, "add");
+            this.Hide();
+            addStudent.Show();
+        }
+
+        private void HomeButton_Click_1(object sender, EventArgs e)
+        {
+            FYPMainScreen form = new FYPMainScreen();
+            form.Show();
+            this.Close();
+        }
+
+        private void Students_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == Students.NewRowIndex || e.RowIndex < 0)
                 return;
@@ -63,16 +81,36 @@ namespace FinalYearProjectManagement
                 int i = e.RowIndex;
                 String email = Students.Rows[i].Cells[3].Value.ToString();
                 string regno = Students.Rows[i].Cells[1].Value.ToString();
-                SqlConnection connection = new SqlConnection(connString);
-                connection.Open();
-                string display = String.Format("DELETE FROM Student WHERE RegistrationNo = '{0}'", regno);
-                SqlCommand cmd = new SqlCommand(display, connection);
-                cmd.ExecuteNonQuery();
+                string fullName = Students.Rows[i].Cells[0].Value.ToString();
 
-                cmd.CommandText = string.Format("DELETE FROM Person WHERE Email = '{0}'", email);
-                cmd.ExecuteNonQuery();
-                Students.Rows.RemoveAt(i);
-                connection.Close();
+                string dialog = string.Format("Are you sure you want to delete the student '{0}' and all its information?", fullName);
+                DialogResult dialogResult = MessageBox.Show(dialog, "Delete Student", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    SqlConnection connection = new SqlConnection(connString);
+                    connection.Open();
+
+                    string getid = string.Format("SELECT Id FROM Student WHERE RegistrationNo = '{0}'", regno);
+                    SqlCommand cmd = new SqlCommand(getid, connection);
+                    int id = (Int32)cmd.ExecuteScalar();
+
+                    cmd.CommandText = string.Format("DELETE FROM GroupStudent WHERE StudentId = '{0}'", id);
+                    cmd.ExecuteNonQuery();
+
+                    string del = String.Format("DELETE FROM Student WHERE RegistrationNo = '{0}'", regno);
+                    cmd.CommandText = del;
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = string.Format("DELETE FROM Person WHERE Email = '{0}'", email);
+                    cmd.ExecuteNonQuery();
+                    Students.Rows.RemoveAt(i);
+                    MessageBox.Show("Student deleted successfully!");
+                    connection.Close();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    MessageBox.Show("Student not deleted!");
+                }
             }
             if (e.ColumnIndex == Students.Columns["StudentEditButton"].Index)
             {
@@ -91,20 +129,6 @@ namespace FinalYearProjectManagement
                 form.Show();
                 this.Hide();
             }
-        }
-
-        private void InsertStudent_Click(object sender, EventArgs e)
-        {
-            string firstName = "";
-            string lastName = "";
-            string regno = "";
-            string contact = "";
-            string email = "";
-            DateTime dob = DateTime.Now;
-            string gender = "";
-            AddStudent addStudent = new AddStudent(firstName, lastName, regno, contact, email, dob, gender, "add");
-            this.Hide();
-            addStudent.Show();
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.AddAdvisorHeadingLabel = new System.Windows.Forms.Label();
             this.SalaryTextBox = new System.Windows.Forms.TextBox();
             this.Salary = new System.Windows.Forms.Label();
             this.designationComboBox = new System.Windows.Forms.ComboBox();
@@ -54,6 +55,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.AddAdvisorHeadingLabel);
             this.panel1.Controls.Add(this.SalaryTextBox);
             this.panel1.Controls.Add(this.Salary);
             this.panel1.Controls.Add(this.designationComboBox);
@@ -74,17 +76,28 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(628, 391);
+            this.panel1.Size = new System.Drawing.Size(952, 438);
             this.panel1.TabIndex = 19;
+            // 
+            // AddAdvisorHeadingLabel
+            // 
+            this.AddAdvisorHeadingLabel.AutoSize = true;
+            this.AddAdvisorHeadingLabel.Font = new System.Drawing.Font("Century Schoolbook", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddAdvisorHeadingLabel.ForeColor = System.Drawing.Color.White;
+            this.AddAdvisorHeadingLabel.Location = new System.Drawing.Point(233, 21);
+            this.AddAdvisorHeadingLabel.Name = "AddAdvisorHeadingLabel";
+            this.AddAdvisorHeadingLabel.Size = new System.Drawing.Size(132, 25);
+            this.AddAdvisorHeadingLabel.TabIndex = 22;
+            this.AddAdvisorHeadingLabel.Text = "Add Advsior";
             // 
             // SalaryTextBox
             // 
             this.SalaryTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SalaryTextBox.Location = new System.Drawing.Point(151, 271);
+            this.SalaryTextBox.Location = new System.Drawing.Point(243, 316);
             this.SalaryTextBox.Name = "SalaryTextBox";
-            this.SalaryTextBox.Size = new System.Drawing.Size(370, 20);
+            this.SalaryTextBox.Size = new System.Drawing.Size(539, 20);
             this.SalaryTextBox.TabIndex = 21;
             // 
             // Salary
@@ -93,9 +106,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Salary.AutoSize = true;
-            this.Salary.Location = new System.Drawing.Point(14, 278);
+            this.Salary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.Salary.ForeColor = System.Drawing.Color.White;
+            this.Salary.Location = new System.Drawing.Point(45, 314);
             this.Salary.Name = "Salary";
-            this.Salary.Size = new System.Drawing.Size(36, 13);
+            this.Salary.Size = new System.Drawing.Size(56, 20);
             this.Salary.TabIndex = 20;
             this.Salary.Text = "Salary";
             // 
@@ -113,9 +128,9 @@
             "Assisstant Professor",
             "Lecturer",
             "Industry Professional"});
-            this.designationComboBox.Location = new System.Drawing.Point(151, 228);
+            this.designationComboBox.Location = new System.Drawing.Point(243, 273);
             this.designationComboBox.Name = "designationComboBox";
-            this.designationComboBox.Size = new System.Drawing.Size(370, 21);
+            this.designationComboBox.Size = new System.Drawing.Size(539, 21);
             this.designationComboBox.TabIndex = 19;
             // 
             // panel2
@@ -125,15 +140,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.BackToMainScreenStudent);
             this.panel2.Controls.Add(this.AddAdvisor1);
-            this.panel2.Location = new System.Drawing.Point(17, 324);
+            this.panel2.Location = new System.Drawing.Point(17, 358);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(582, 55);
+            this.panel2.Size = new System.Drawing.Size(911, 68);
             this.panel2.TabIndex = 18;
             // 
             // BackToMainScreenStudent
             // 
             this.BackToMainScreenStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BackToMainScreenStudent.Location = new System.Drawing.Point(93, 19);
+            this.BackToMainScreenStudent.Location = new System.Drawing.Point(52, 22);
             this.BackToMainScreenStudent.Name = "BackToMainScreenStudent";
             this.BackToMainScreenStudent.Size = new System.Drawing.Size(79, 27);
             this.BackToMainScreenStudent.TabIndex = 17;
@@ -144,7 +159,7 @@
             // AddAdvisor1
             // 
             this.AddAdvisor1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.AddAdvisor1.Location = new System.Drawing.Point(411, 19);
+            this.AddAdvisor1.Location = new System.Drawing.Point(767, 22);
             this.AddAdvisor1.Name = "AddAdvisor1";
             this.AddAdvisor1.Size = new System.Drawing.Size(83, 27);
             this.AddAdvisor1.TabIndex = 1;
@@ -157,9 +172,9 @@
             this.ContactText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContactText.Location = new System.Drawing.Point(151, 89);
+            this.ContactText.Location = new System.Drawing.Point(243, 134);
             this.ContactText.Name = "ContactText";
-            this.ContactText.Size = new System.Drawing.Size(370, 20);
+            this.ContactText.Size = new System.Drawing.Size(539, 20);
             this.ContactText.TabIndex = 6;
             // 
             // Designation
@@ -168,9 +183,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Designation.AutoSize = true;
-            this.Designation.Location = new System.Drawing.Point(14, 231);
+            this.Designation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.Designation.ForeColor = System.Drawing.Color.White;
+            this.Designation.Location = new System.Drawing.Point(45, 271);
             this.Designation.Name = "Designation";
-            this.Designation.Size = new System.Drawing.Size(63, 13);
+            this.Designation.Size = new System.Drawing.Size(98, 20);
             this.Designation.TabIndex = 15;
             this.Designation.Text = "Designation";
             // 
@@ -185,9 +202,9 @@
             this.GenderComboBox.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.GenderComboBox.Location = new System.Drawing.Point(151, 192);
+            this.GenderComboBox.Location = new System.Drawing.Point(243, 237);
             this.GenderComboBox.Name = "GenderComboBox";
-            this.GenderComboBox.Size = new System.Drawing.Size(370, 21);
+            this.GenderComboBox.Size = new System.Drawing.Size(539, 21);
             this.GenderComboBox.TabIndex = 14;
             // 
             // FirstName
@@ -196,9 +213,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FirstName.AutoSize = true;
-            this.FirstName.Location = new System.Drawing.Point(14, 33);
+            this.FirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.FirstName.ForeColor = System.Drawing.Color.White;
+            this.FirstName.Location = new System.Drawing.Point(43, 69);
             this.FirstName.Name = "FirstName";
-            this.FirstName.Size = new System.Drawing.Size(57, 13);
+            this.FirstName.Size = new System.Drawing.Size(92, 20);
             this.FirstName.TabIndex = 0;
             this.FirstName.Text = "First Name";
             // 
@@ -207,9 +226,9 @@
             this.DOBdateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DOBdateTimePicker.Location = new System.Drawing.Point(151, 156);
+            this.DOBdateTimePicker.Location = new System.Drawing.Point(243, 201);
             this.DOBdateTimePicker.Name = "DOBdateTimePicker";
-            this.DOBdateTimePicker.Size = new System.Drawing.Size(370, 20);
+            this.DOBdateTimePicker.Size = new System.Drawing.Size(539, 20);
             this.DOBdateTimePicker.TabIndex = 13;
             // 
             // FirstNametext
@@ -217,9 +236,9 @@
             this.FirstNametext.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.FirstNametext.Location = new System.Drawing.Point(151, 26);
+            this.FirstNametext.Location = new System.Drawing.Point(243, 71);
             this.FirstNametext.Name = "FirstNametext";
-            this.FirstNametext.Size = new System.Drawing.Size(370, 20);
+            this.FirstNametext.Size = new System.Drawing.Size(539, 20);
             this.FirstNametext.TabIndex = 2;
             // 
             // Gender
@@ -228,9 +247,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Gender.AutoSize = true;
-            this.Gender.Location = new System.Drawing.Point(14, 195);
+            this.Gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.Gender.ForeColor = System.Drawing.Color.White;
+            this.Gender.Location = new System.Drawing.Point(45, 235);
             this.Gender.Name = "Gender";
-            this.Gender.Size = new System.Drawing.Size(42, 13);
+            this.Gender.Size = new System.Drawing.Size(64, 20);
             this.Gender.TabIndex = 11;
             this.Gender.Text = "Gender";
             // 
@@ -240,9 +261,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LastName.AutoSize = true;
-            this.LastName.Location = new System.Drawing.Point(14, 64);
+            this.LastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.LastName.ForeColor = System.Drawing.Color.White;
+            this.LastName.Location = new System.Drawing.Point(45, 100);
             this.LastName.Name = "LastName";
-            this.LastName.Size = new System.Drawing.Size(58, 13);
+            this.LastName.Size = new System.Drawing.Size(91, 20);
             this.LastName.TabIndex = 3;
             this.LastName.Text = "Last Name";
             // 
@@ -252,9 +275,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DOB.AutoSize = true;
-            this.DOB.Location = new System.Drawing.Point(14, 156);
+            this.DOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.DOB.ForeColor = System.Drawing.Color.White;
+            this.DOB.Location = new System.Drawing.Point(43, 201);
             this.DOB.Name = "DOB";
-            this.DOB.Size = new System.Drawing.Size(66, 13);
+            this.DOB.Size = new System.Drawing.Size(105, 20);
             this.DOB.TabIndex = 9;
             this.DOB.Text = "Date of Birth";
             // 
@@ -263,9 +288,9 @@
             this.LastNameText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LastNameText.Location = new System.Drawing.Point(151, 57);
+            this.LastNameText.Location = new System.Drawing.Point(243, 102);
             this.LastNameText.Name = "LastNameText";
-            this.LastNameText.Size = new System.Drawing.Size(370, 20);
+            this.LastNameText.Size = new System.Drawing.Size(539, 20);
             this.LastNameText.TabIndex = 4;
             // 
             // EmailText
@@ -273,9 +298,9 @@
             this.EmailText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EmailText.Location = new System.Drawing.Point(151, 121);
+            this.EmailText.Location = new System.Drawing.Point(243, 166);
             this.EmailText.Name = "EmailText";
-            this.EmailText.Size = new System.Drawing.Size(370, 20);
+            this.EmailText.Size = new System.Drawing.Size(539, 20);
             this.EmailText.TabIndex = 8;
             // 
             // Contact
@@ -284,9 +309,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Contact.AutoSize = true;
-            this.Contact.Location = new System.Drawing.Point(14, 96);
+            this.Contact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.Contact.ForeColor = System.Drawing.Color.White;
+            this.Contact.Location = new System.Drawing.Point(45, 132);
             this.Contact.Name = "Contact";
-            this.Contact.Size = new System.Drawing.Size(44, 13);
+            this.Contact.Size = new System.Drawing.Size(67, 20);
             this.Contact.TabIndex = 5;
             this.Contact.Text = "Contact";
             // 
@@ -296,9 +323,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Email.AutoSize = true;
-            this.Email.Location = new System.Drawing.Point(14, 128);
+            this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.Email.ForeColor = System.Drawing.Color.White;
+            this.Email.Location = new System.Drawing.Point(45, 164);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(32, 13);
+            this.Email.Size = new System.Drawing.Size(51, 20);
             this.Email.TabIndex = 7;
             this.Email.Text = "Email";
             // 
@@ -306,9 +335,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 391);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
+            this.ClientSize = new System.Drawing.Size(952, 438);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "AddAdvisor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddAdvisor";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -339,5 +372,6 @@
         private System.Windows.Forms.ComboBox designationComboBox;
         private System.Windows.Forms.TextBox SalaryTextBox;
         private System.Windows.Forms.Label Salary;
+        private System.Windows.Forms.Label AddAdvisorHeadingLabel;
     }
 }

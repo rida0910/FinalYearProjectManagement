@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\itextsharp\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -69,17 +72,54 @@
     <Compile Include="AddStudent.Designer.cs">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="AssignAdvisorToProject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AssignAdvisorToProject.Designer.cs">
+      <DependentUpon>AssignAdvisorToProject.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainScreen.cs">
+    <Compile Include="AssignProjectToGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainScreen.Designer.cs">
-      <DependentUpon>MainScreen.cs</DependentUpon>
+    <Compile Include="AssignProjectToGroup.Designer.cs">
+      <DependentUpon>AssignProjectToGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateGroup.Designer.cs">
+      <DependentUpon>CreateGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EvaluateGroupsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EvaluateGroupsForm.Designer.cs">
+      <DependentUpon>EvaluateGroupsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupEvaluation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include=".Designer.cs">
+      <DependentUpon>GroupEvaluation.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FYPMainScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FYPMainScreen.Designer.cs">
+      <DependentUpon>FYPMainScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupProjects.Designer.cs">
+      <DependentUpon>GroupProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageAssignAdvisorToProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageAssignAdvisorToProject.Designer.cs">
+      <DependentUpon>ManageAssignAdvisorToProject.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageEvaluations.cs">
       <SubType>Form</SubType>
@@ -87,21 +127,39 @@
     <Compile Include="ManageEvaluations.Designer.cs">
       <DependentUpon>ManageEvaluations.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageGroups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageGroups.Designer.cs">
+      <DependentUpon>ManageGroups.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageProjects.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManageProjects.Designer.cs">
       <DependentUpon>ManageProjects.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManagerAdvisor.cs">
+    <Compile Include="ManageAdvisors.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManagerAdvisor.Designer.cs">
-      <DependentUpon>ManagerAdvisor.cs</DependentUpon>
+    <Compile Include="ManageAdvisors.Designer.cs">
+      <DependentUpon>ManageAdvisors.cs</DependentUpon>
     </Compile>
-    <Compile Include="Person.cs" />
+    <Compile Include="Classes.cs" />
+    <Compile Include="ManageStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageStudents.Designer.cs">
+      <DependentUpon>ManageStudents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddAdvisor.resx">
       <DependentUpon>AddAdvisor.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,20 +172,44 @@
     <EmbeddedResource Include="AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AssignAdvisorToProject.resx">
+      <DependentUpon>AssignAdvisorToProject.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainScreen.resx">
-      <DependentUpon>MainScreen.cs</DependentUpon>
+    <EmbeddedResource Include="AssignProjectToGroup.resx">
+      <DependentUpon>AssignProjectToGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateGroup.resx">
+      <DependentUpon>CreateGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EvaluateGroupsForm.resx">
+      <DependentUpon>EvaluateGroupsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupEvaluation.resx">
+      <DependentUpon>GroupEvaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FYPMainScreen.resx">
+      <DependentUpon>FYPMainScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupProjects.resx">
+      <DependentUpon>GroupProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageAssignAdvisorToProject.resx">
+      <DependentUpon>ManageAssignAdvisorToProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageEvaluations.resx">
       <DependentUpon>ManageEvaluations.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageGroups.resx">
+      <DependentUpon>ManageGroups.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManageProjects.resx">
       <DependentUpon>ManageProjects.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManagerAdvisor.resx">
-      <DependentUpon>ManagerAdvisor.cs</DependentUpon>
+    <EmbeddedResource Include="ManageAdvisors.resx">
+      <DependentUpon>ManageAdvisors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageStudents.resx">
+      <DependentUpon>ManageStudents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -139,6 +221,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
